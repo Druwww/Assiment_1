@@ -13,7 +13,7 @@
 #include "Student.h"
 using namespace std;
 
-/*
+
 void initialize(LinkedList &l1, LinkedList &l2)
 {
     Student c("Alex", 15);
@@ -39,17 +39,13 @@ void initialize(LinkedList &l1, LinkedList &l2)
     l2.addToTail(c);
 	c.set_name("Tony"); c.set_score(60);
     l2.addToTail(c);
-}*/
+}
 
 int main()
 {
 
-	Student s1 ("Quentin", 100);
-	Node* ptr = new Node(s1);
-	s1.set_name("Paul");
-	std::cout << ptr;
-	ptr->~Node();
-  /*
+
+
     LinkedList firstList;
 	LinkedList secondList;
 
@@ -58,7 +54,7 @@ int main()
 	cout << "Start lists:" << endl;
 	cout << "List 1: " << firstList  <<  endl;
 	cout << "List 2: " << secondList <<  endl << endl;
-
+/*
 	cout << "Concatenating the two lists onto list '1':" << endl;
 	firstList += secondList;
     cout << "List 1: " << firstList  << endl;
