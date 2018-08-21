@@ -1,0 +1,3 @@
+Mettre dans LinkedList un attribue : current ; un pointeur de type node qui point vers un random, utilisé dans les fcs
+
+pour utiliser NULL : include <cstdlib>
