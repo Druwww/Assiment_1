@@ -43,6 +43,12 @@ void initialize(LinkedList &l1, LinkedList &l2)
 
 int main()
 {
+
+	Student s1 ("Quentin", 100);
+	Node* ptr = new Node(s1);
+	s1.set_name("Paul");
+	std::cout << ptr;
+	ptr->~Node();
   /*
     LinkedList firstList;
 	LinkedList secondList;

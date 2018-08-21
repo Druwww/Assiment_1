@@ -14,7 +14,7 @@ private:
 public:
 
   Node();
-  Node(Student* ptrData, Node* ptrNodeBefore = NULL, Node* ptrNodeAfter = NULL);
+  Node(Student& data, Node* ptrNodeBefore = NULL, Node* ptrNodeAfter = NULL);
 
   Student* getData() const;
   void setData(Student* value);
@@ -28,5 +28,6 @@ public:
   virtual ~Node ();
 };
 
+ostream& operator <<(ostream&, const Node*);
 
 #endif
