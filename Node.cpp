@@ -5,7 +5,7 @@ Node::Node(): m_data(NULL), m_before(NULL), m_after(NULL){
     //Hi teacher
 }
 
-Node::Node(Student& data, Node* ptrNodeBefore, Node* ptrNodeAfter): m_before(ptrNodeBefore), m_after(ptrNodeAfter){
+Node::Node(const Student& data, Node* ptrNodeBefore, Node* ptrNodeAfter): m_before(ptrNodeBefore), m_after(ptrNodeAfter){
   m_data = new Student(data.get_name(), data.get_score());
 }
 

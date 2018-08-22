@@ -49,6 +49,129 @@ void LinkedList::setCurrent(Node* value){
 }
 
 
+void LinkedList::remove(Node* nodeDel){
+
+    if(nodeDel->getPtrBefore() == NULL){
+      m_head = nodeDel->getPtrAfter();
+    }
+    else{
+      nodeDel->getPtrBefore()->setPtrAfter(nodeDel->getPtrAfter());
+    }
+
+    if(nodeDel->getPtrAfter() == NULL){
+      m_tail = nodeDel->getPtrBefore();
+    }
+    else{
+      nodeDel->getPtrAfter()->setPtrBefore(nodeDel->getPtrBefore());
+
+    }
+    nodeDel->~Node();
+
+}
+
+void LinkedList::remove(const string name){
+
+    m_current = m_head;
+
+    Node* tempPtr;
+
+    while (m_current != m_tail) {
+      tempPtr = m_current;
+      m_current = m_current->getPtrAfter();
+      if(tempPtr->getData()->get_name() == name){
+          remove(tempPtr);
+      }
+    }
+
+    if(m_tail->getData()->get_name() == name){
+      remove(m_tail);
+    }
+
+}
+
+void LinkedList::setnumber(){
+  int value = 0;
+
+  m_current = m_head;
+
+  while (m_current != m_tail) {
+    value++;
+    m_current = m_current->getPtrAfter();
+  }
+
+  value++;
+
+  if(m_head == NULL){
+    m_number =0;
+  }
+  else{
+    m_number = value;
+  }
+
+}
+
+
+int LinkedList::calcAverage(){
+    setnumber();
+
+    if(m_head == NULL){
+      return 0;
+    }
+
+    int total = 0;
+
+    m_current = m_head;
+
+    while (m_current != m_tail) {
+      total += m_current->getData()->get_score();
+      m_current = m_current->getPtrAfter();
+    }
+
+    total += m_tail->getData()->get_score();
+
+    return total / m_number;
+
+}
+
+int LinkedList::count(const string name){
+  int value = 0;
+
+  if(m_head == NULL){
+    return 0;
+  }
+
+  m_current = m_head;
+
+  while (m_current != m_tail) {
+    if(m_current->getData()->get_name() == name){
+      value ++;
+    }
+    m_current = m_current->getPtrAfter();
+  }
+
+  if(m_tail->getData()->get_name() == name){
+    value ++;
+  }
+
+  return value;
+
+}
+
+
+
+void LinkedList::operator += (LinkedList& rLinkedAdd){
+    rLinkedAdd.setCurrent(rLinkedAdd.getHead());
+
+    while(rLinkedAdd.getCurrent() != rLinkedAdd.getTail()){
+      addToTail(*(rLinkedAdd.getCurrent()->getData()));
+      rLinkedAdd.setCurrent(rLinkedAdd.getCurrent()->getPtrAfter());
+    }
+
+      addToTail(*(rLinkedAdd.getTail()->getData()));
+}
+
+
+
 ostream& operator <<(ostream& out, LinkedList& theList){
 
   theList.setCurrent(theList.getHead());

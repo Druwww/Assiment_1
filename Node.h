@@ -14,7 +14,7 @@ private:
 public:
 
   Node();
-  Node(Student& data, Node* ptrNodeBefore = NULL, Node* ptrNodeAfter = NULL);
+  Node(const Student& data, Node* ptrNodeBefore = NULL, Node* ptrNodeAfter = NULL);
 
   Student* getData() const;
   void setData(Student* value);

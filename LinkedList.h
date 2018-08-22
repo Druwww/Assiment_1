@@ -33,6 +33,17 @@ public:
 
   void addToTail(Student& newStudent);
 
+  void operator += (LinkedList& rLinkedAdd);
+
+  void remove(Node* nodeDel);
+  void remove(const string name);
+
+  void setnumber();
+
+  int calcAverage();
+
+  int count(const string name);
+
 };
 
 ostream& operator <<(ostream&, LinkedList& theList);
