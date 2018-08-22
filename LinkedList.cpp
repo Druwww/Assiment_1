@@ -6,7 +6,18 @@ LinkedList::LinkedList(): m_head(NULL), m_tail(NULL), m_current(NULL), m_number(
 }
 
 LinkedList::~LinkedList(){
-  //free all data
+  setnumber();
+
+  m_current = m_head;
+
+  for(int i = 0; i < m_number; i++){
+    Node* next = m_current->getPtrAfter();
+    delete m_current;
+    m_current = next;
+  }
+
+  cout << "Bye Bye !\n";
+
 }
 
 Node* LinkedList::getHead() const{
@@ -65,7 +76,7 @@ void LinkedList::remove(Node* nodeDel){
       nodeDel->getPtrAfter()->setPtrBefore(nodeDel->getPtrBefore());
 
     }
-    nodeDel->~Node();
+    delete nodeDel;
 
 }
 

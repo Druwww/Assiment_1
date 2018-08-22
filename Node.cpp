@@ -10,7 +10,7 @@ Node::Node(const Student& data, Node* ptrNodeBefore, Node* ptrNodeAfter): m_befo
 }
 
 Node::~Node(){
-  m_data->~Student();
+  delete m_data;
 }
 
 
