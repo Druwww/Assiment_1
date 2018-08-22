@@ -44,6 +44,12 @@ public:
 
   int count(const string name);
 
+  void swap(Node* n1, Node* n2);
+
+  bool orderAlphabet();
+
+  void order();
+
 };
 
 ostream& operator <<(ostream&, LinkedList& theList);

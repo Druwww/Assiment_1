@@ -55,7 +55,6 @@ int main()
 	cout << "List 1: " << firstList  <<  endl;
 	cout << "List 2: " << secondList <<  endl << endl;
 
-
 	cout << "Concatenating the two lists onto list '1':" << endl;
 	firstList += secondList;
     cout << "List 1: " << firstList  << endl;
@@ -88,16 +87,14 @@ int main()
 	cout << "Average of list '2': ";
 	cout << secondList.calcAverage() << endl << endl;
 
-
-
 	cout << "Number of students named 'Carol': ";
 	cout << (firstList.count("Carol") + secondList.count("Carol")) << endl << endl;
 
-//	cout << "Ordered lists: " << endl;
-//	firstList.order();
-//	secondList.order();
-//	cout << "List 1: " << firstList  << endl;
-//	cout << "List 2: " << secondList << endl << endl;
+	cout << "Ordered lists: " << endl;
+	firstList.order();
+	secondList.order();
+	cout << "List 1: " << firstList  << endl;
+	cout << "List 2: " << secondList << endl << endl;
 
 
 	cout << "The program has finished." << endl;

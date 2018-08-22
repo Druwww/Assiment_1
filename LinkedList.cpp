@@ -92,14 +92,14 @@ void LinkedList::remove(const string name){
 void LinkedList::setnumber(){
   int value = 0;
 
+
   m_current = m_head;
 
-  while (m_current != m_tail) {
+  while (m_current->getPtrAfter() != NULL) {
     value++;
     m_current = m_current->getPtrAfter();
   }
 
-  value++;
 
   if(m_head == NULL){
     m_number =0;
@@ -157,6 +157,39 @@ int LinkedList::count(const string name){
 
 }
 
+void LinkedList::swap(Node* n1, Node* n2){
+
+  Student* temp = n1->getData();
+
+  n1->setData(n2->getData());
+  n2->setData(temp);
+
+}
+
+
+bool LinkedList::orderAlphabet(){
+
+  setnumber();
+
+  m_current = m_head;
+  for(int j = 0; j < m_number - 1; j++) {
+    Node* nextPtr = m_current->getPtrAfter();
+    if(m_current->getData()->get_name() > nextPtr->getData()->get_name()){
+      swap(m_current, nextPtr);
+      return false;
+    }
+    else{
+      m_current = m_current->getPtrAfter();
+    }
+  }
+  return true;
+}
+
+void LinkedList::order(){
+
+  while(!orderAlphabet()){}
+
+}
 
 
 void LinkedList::operator += (LinkedList& rLinkedAdd){
