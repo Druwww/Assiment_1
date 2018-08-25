@@ -1,13 +1,10 @@
 #include "LinkedList.h"
 
-
 LinkedList::LinkedList(): m_head(NULL), m_tail(NULL), m_current(NULL), m_number(0){
   //Hi
 }
 
 LinkedList::~LinkedList(){
-  //setnumber();
-
   m_current = m_head;
 
   for(int i = 0; i < m_number; i++){
@@ -17,12 +14,12 @@ LinkedList::~LinkedList(){
   }
 
   cout << "Bye Bye !\n";
-
 }
 
 Node* LinkedList::getHead() const{
     return m_head;
 }
+
 void LinkedList::setHead(Node* value){
     m_head = value;
 }
@@ -30,6 +27,7 @@ void LinkedList::setHead(Node* value){
 Node* LinkedList::getTail() const{
     return m_tail;
 }
+
 void LinkedList::setTail(Node* value){
     m_tail = value;
 }
@@ -41,12 +39,12 @@ int LinkedList::getNumber() const{
 Node* LinkedList::getCurrent() const{
   return m_current;
 }
+
 void LinkedList::setCurrent(Node* value){
   m_current = value;
 }
 
 void LinkedList::addToTail(Student& newStudent){
-
     //If nothing in the list
     if(m_head == NULL){
       m_head = new Node(newStudent, NULL, NULL);
@@ -59,12 +57,9 @@ void LinkedList::addToTail(Student& newStudent){
     }
 
     m_number++;
-
 }
 
-
 void LinkedList::remove(Node* nodeDel){
-
     //If the node delete is the head
     if(nodeDel->getPtrBefore() == NULL){
       m_head = nodeDel->getPtrAfter();
@@ -83,20 +78,17 @@ void LinkedList::remove(Node* nodeDel){
       nodeDel->getPtrAfter()->setPtrBefore(nodeDel->getPtrBefore());
 
     }
-    delete nodeDel;
 
+    delete nodeDel;
     m_number --;
 
     //Security check
     updateHead();
     updateTail();
-
 }
 
 void LinkedList::remove(const string name){
-
     m_current = m_head;
-
     Node* tempPtr;
 
     //loking fot the Node* to remove with the name
@@ -111,7 +103,6 @@ void LinkedList::remove(const string name){
 
 void LinkedList::setnumber(){
   int value = 0;
-
   m_current = m_head;
 
   while (m_current != NULL) {
@@ -120,20 +111,16 @@ void LinkedList::setnumber(){
   }
 
   m_number = value;
-
 }
 
 
 int LinkedList::calcAverage(){
-    //setnumber();
-
     //if nothing in the list...
     if(m_head == NULL){
       return 0;
     }
 
     int total = 0;
-
     m_current = m_head;
 
     //Add all the scores together
@@ -163,10 +150,12 @@ int LinkedList::count(const string name){
   }
 
   return value;
-
 }
 
 void LinkedList::swapNodeNext(Node* n1, Node* n2){
+
+  //We check every case possible
+  //Member to upgrade...
 
   if(n1->getPtrBefore() == NULL && n2->getPtrAfter() == NULL){
     n2->setPtrBefore(NULL);
@@ -213,15 +202,17 @@ void LinkedList::swapNodeNext(Node* n1, Node* n2){
 
   updateHead();
   updateTail();
-
 }
 
 
 bool LinkedList::orderAlphabet(){
 
   m_current = m_head;
+
+  //We check every combinaison of the list
   for(int j = 0; j < m_number - 1; j++) {
     Node* nextPtr = m_current->getPtrAfter();
+    //if isn't in a good order : swap
     if(m_current->getData()->get_name() > nextPtr->getData()->get_name()){
       swapNodeNext(m_current, nextPtr);
       return false;
@@ -230,8 +221,6 @@ bool LinkedList::orderAlphabet(){
       m_current = m_current->getPtrAfter();
     }
   }
-
-
   return true;
 }
 
@@ -240,31 +229,29 @@ void LinkedList::order(){
 }
 
 void LinkedList::updateHead(){
-
   while (m_head->getPtrBefore() != NULL) {
     m_head = m_head->getPtrBefore();
   }
-
 }
 
 void LinkedList::updateTail(){
-
   while (m_tail->getPtrAfter() != NULL) {
     m_tail = m_tail->getPtrAfter();
   }
-
 }
 
 
 void LinkedList::operator += (LinkedList& rLinkedAdd){
+  //Prepapre the list to copy
     rLinkedAdd.setCurrent(rLinkedAdd.getHead());
 
+    //We add all the student in the list from the copy list
     while(rLinkedAdd.getCurrent() != rLinkedAdd.getTail()){
       addToTail(*(rLinkedAdd.getCurrent()->getData()));
       rLinkedAdd.setCurrent(rLinkedAdd.getCurrent()->getPtrAfter());
     }
 
-      addToTail(*(rLinkedAdd.getTail()->getData()));
+    addToTail(*(rLinkedAdd.getTail()->getData()));
 }
 
 

@@ -13,9 +13,11 @@ private:
 
 public:
 
+  //Constructors
   Node();
   Node(const Student& data, Node* ptrNodeBefore = NULL, Node* ptrNodeAfter = NULL);
 
+  //Getter/Setter
   Student* getData() const;
   void setData(Student* value);
 
@@ -25,6 +27,7 @@ public:
   Node* getPtrAfter() const;
   void setPtrAfter(Node* value);
 
+  //Destruction
   virtual ~Node ();
 };
 
