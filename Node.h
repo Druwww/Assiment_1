@@ -13,9 +13,11 @@ private:
 
 public:
 
+  //Constructors
   Node();
-  Node(Student* ptrData, Node* ptrNodeBefore = NULL, Node* ptrNodeAfter = NULL);
+  Node(const Student& data, Node* ptrNodeBefore = NULL, Node* ptrNodeAfter = NULL);
 
+  //Getter/Setter
   Student* getData() const;
   void setData(Student* value);
 
@@ -25,8 +27,10 @@ public:
   Node* getPtrAfter() const;
   void setPtrAfter(Node* value);
 
+  //Destruction
   virtual ~Node ();
 };
 
+ostream& operator <<(ostream&, const Node*);
 
 #endif

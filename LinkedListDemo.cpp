@@ -13,7 +13,7 @@
 #include "Student.h"
 using namespace std;
 
-/*
+
 void initialize(LinkedList &l1, LinkedList &l2)
 {
     Student c("Alex", 15);
@@ -39,11 +39,13 @@ void initialize(LinkedList &l1, LinkedList &l2)
     l2.addToTail(c);
 	c.set_name("Tony"); c.set_score(60);
     l2.addToTail(c);
-}*/
+}
 
 int main()
 {
-  /*
+
+
+
     LinkedList firstList;
 	LinkedList secondList;
 
@@ -88,13 +90,13 @@ int main()
 	cout << "Number of students named 'Carol': ";
 	cout << (firstList.count("Carol") + secondList.count("Carol")) << endl << endl;
 
-//	cout << "Ordered lists: " << endl;
-//	firstList.order();
-//	secondList.order();
-//	cout << "List 1: " << firstList  << endl;
-//	cout << "List 2: " << secondList << endl << endl;
+	cout << "Ordered lists: " << endl;
+	firstList.order();
+	secondList.order();
+	cout << "List 1: " << firstList  << endl;
+	cout << "List 2: " << secondList << endl << endl;
 
-*/
+
 	cout << "The program has finished." << endl;
 	return 0;
 }
