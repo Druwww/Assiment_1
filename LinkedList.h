@@ -44,11 +44,15 @@ public:
 
   int count(const string name);
 
-  void swap(Node* n1, Node* n2);
+  void swapNodeNext(Node* n1, Node* n2);
 
   bool orderAlphabet();
 
   void order();
+
+  void updateHead();
+
+  void updateTail();
 
 };
 
